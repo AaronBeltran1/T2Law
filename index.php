@@ -30,6 +30,12 @@
     <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8 relative z-10">
         <h2 class="text-2xl font-bold mb-6 text-center font-serif">Login</h2>
         <form action="login_process.php" method="POST" class="space-y-4">
+            <?php if (isset($_GET['error']) && $_GET['error'] === 'invalid'): ?>
+    <div class="mb-4 p-3 text-sm text-red-700 bg-red-100 rounded">
+        ❌ Invalid email or password. <br>
+        If you don’t have an account yet, please <a href="registration.php" class="text-blue-600 underline">register here</a>.
+    </div>
+<?php endif; ?>
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                 <input type="email" id="email" name="email" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
